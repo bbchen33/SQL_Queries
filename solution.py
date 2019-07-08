@@ -1,4 +1,4 @@
----Users by country---
+--Users by country--
 SELECT DATE_TRUNC('day', e.occurred_at),
        location,
        COUNT(*) 
