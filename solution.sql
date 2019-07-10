@@ -23,3 +23,15 @@ AND e.occurred_at >= '2014-05-01'
 AND e.occurred_at < '2014-09-01'
 GROUP BY 1
 ORDER BY 1
+--Users by experimental group
+SELECT DATE_TRUNC('day',e.occurred_at) AS day,
+       COUNT(CASE WHEN ex.experiment_group = 'control_group' THEN 'control' END) AS control,
+       COUNT(CASE WHEN ex.experiment_group = 'test_group' THEN 'test' END) AS test
+FROM tutorial.yammer_emails e
+JOIN tutorial.yammer_users u 
+ON e.user_id = u.user_id
+
+JOIN tutorial.yammer_experiments ex 
+ON e.user_id = ex.user_id
+GROUP BY 1
+ORDER BY 1
