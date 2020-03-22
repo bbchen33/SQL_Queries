@@ -1,3 +1,8 @@
+
+/* Yammer analytic case with alternative solution https://mode.com/resources/sql-tutorial/sql-business-analytics-training/ */
+
+
+
 --Users by country--
 SELECT DATE_TRUNC('day', e.occurred_at),
        location,
